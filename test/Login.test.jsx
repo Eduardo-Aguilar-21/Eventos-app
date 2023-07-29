@@ -6,7 +6,7 @@ const { render } = require('@testing-library/react-native');
 describe('Login component', () => {
   it('renders correctly', () => {
     const { getByText } = render(<Login />);
-    const textElement = getByText('Hola');
+    const textElement = getByText('Iniciar Sesion');
     expect(textElement).toBeDefined();
   });
 });

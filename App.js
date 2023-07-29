@@ -1,12 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Login from './screens/Login/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import { useState } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { AsyncStorage } from '@react-native-async-storage/async-storage';
+import { Cuenta } from './screens/Cuenta';
+import { Redirigir } from './screens/Login/Redirigir';
+import { Inicio } from './screens/Inicio';
+import { CustomBottomTabBar } from './CustomBottomTabBar';
 
 export default function App() {
+
+  const Stack = createNativeStackNavigator();
+  const [user, setUser] = useState(null);
+
+  const ListarUser = async () => {
+    const rolValue = await AsyncStorage.getItem('rol');
+    setUser(rolValue);
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Cuenta' component={Cuenta} />
+        <Stack.Screen name='Redirigir' component={Redirigir}/>
+        <Stack.Screen
+          name="Inicio"
+          component={CustomBottomTabBar}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
