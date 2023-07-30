@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AsyncStorage } from '@react-native-async-storage/async-storage';
 import { Cuenta } from './screens/Cuenta';
 import { Redirigir } from './screens/Login/Redirigir';
-import { Inicio } from './screens/Inicio';
 import { CustomBottomTabBar } from './CustomBottomTabBar';
 
 export default function App() {

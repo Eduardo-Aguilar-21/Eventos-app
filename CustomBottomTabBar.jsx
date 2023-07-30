@@ -1,11 +1,12 @@
 import React from "react";
-import { Inicio } from "./screens/Inicio";
+
 import { Cuenta } from "./screens/Cuenta";
 import { Configuracion } from "./screens/Configuracion";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome5, MaterialIcons, Ionicons } from "@expo/vector-icons";
 import { Asistir } from "./screens/Asistir";
-import { Categorias } from "./screens/Categorias";
+import { Categorias } from "./screens/common/Categorias/Categorias";
+import { Home } from "./screens/Home";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,8 +14,8 @@ export function CustomBottomTabBar() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Inicio"
-        component={Inicio}
+        name="Home"
+        component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="home" color={color} size={size} />

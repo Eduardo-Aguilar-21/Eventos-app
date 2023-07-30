@@ -16,7 +16,7 @@ export function Redirigir({ navigation }) {
     const token = await AsyncStorage.getItem("token");
     const username = await AsyncStorage.getItem("username");
     setUser(username);
-  };
+  }; 
 
   useEffect(() => {
     DatosUser();
