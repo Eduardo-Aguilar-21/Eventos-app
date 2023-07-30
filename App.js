@@ -8,6 +8,7 @@ import { AsyncStorage } from '@react-native-async-storage/async-storage';
 import { Cuenta } from './screens/Cuenta';
 import { Redirigir } from './screens/Login/Redirigir';
 import { CustomBottomTabBar } from './CustomBottomTabBar';
+import { Home } from './screens/Home';
 
 export default function App() {
 
@@ -24,11 +25,17 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Cuenta' component={Cuenta} />
-        <Stack.Screen name='Redirigir' component={Redirigir}/>
+        <Stack.Screen name='Redirigir' component={Redirigir} />
         <Stack.Screen
           name="Inicio"
           component={CustomBottomTabBar}
           options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Menu"
+          component={Home}
+          
         />
       </Stack.Navigator>
     </NavigationContainer>

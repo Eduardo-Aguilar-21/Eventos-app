@@ -18,7 +18,7 @@ export function ItemEvento({ nombre, icono }) {
           title="Ver eventos"
           buttonStyle={styles.button}
           titleStyle={styles.buttonText}
-        />
+        />  
       </Card>
     </View>
   );

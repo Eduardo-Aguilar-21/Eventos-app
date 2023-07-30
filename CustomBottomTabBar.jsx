@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Cuenta } from "./screens/Cuenta";
 import { Configuracion } from "./screens/Configuracion";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome5, MaterialIcons, Ionicons } from "@expo/vector-icons";
-import { Asistir } from "./screens/Asistir";
+import { Asistir } from "./screens/common/Asistir/Asistir";
 import { Categorias } from "./screens/common/Categorias/Categorias";
 import { Home } from "./screens/Home";
+import { Notificaciones } from "./screens/common/Notificaciones/Notificaciones";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Tab = createBottomTabNavigator();
 
 export function CustomBottomTabBar() {
+  AsyncStorage.removeItem('cat');
+  useEffect(() => {
+    AsyncStorage.removeItem('cat');
+  }, []);
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -39,6 +45,16 @@ export function CustomBottomTabBar() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="ticket-alt" color={color} size={size} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Notificaciones"
+        component={Notificaciones}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="bell" color={color} size={size} />
           ),
         }}
       />
